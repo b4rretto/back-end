@@ -1,0 +1,24 @@
+{
+    "usuarios": [
+      {
+        "usuario": "João",
+        "senha": 16
+      },
+      {
+        "usuario": "Gabriel",
+        "senha": 11
+      },
+      {
+        "usuario": "Pietro",
+        "senha": 12
+      },
+      {
+        "usuario": "Raphaela",
+        "senha": 13
+      },
+      {
+        "usuario": "Geovana",
+        "senha": 14
+      }
+    ]
+  }
