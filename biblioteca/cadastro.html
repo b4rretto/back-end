@@ -37,7 +37,7 @@
           <form action="/cadastro" method="POST" id="cadastroForm">
             <div class="form-group">
               <label for="username">Digite seu Nome</label>
-              <input type="username" class="form-control" id="nome" name="Nome" placeholder="Nome" required>
+              <input type="username" class="form-control" id="nome" name="nome" placeholder="Nome" required>
             </div>
             <div class="form-group">
               <label for="email">Digite seu email</label>
@@ -52,9 +52,9 @@
                 <input type="password" class="form-control" id="confsenha" name="confsenha" placeholder="Repita a senha" required>
               </div>
             <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
-            <form action="/voltar" method="GET">
-              <button type="submit" class="botao-cadastrar"> Clique aqui para voltar ao Login</button>
-            </form>
+          </form>
+          <form action="/login" method="GET">
+            <button type="submit" class="botao-cadastrar"> Clique aqui para voltar ao Login</button>
           </form>
         </div>
       </div>

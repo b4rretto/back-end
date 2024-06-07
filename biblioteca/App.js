@@ -21,17 +21,12 @@ db.connect((error)=>{
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get("/", (req, res)=>{
+app.get(["/", "/login"], (req, res)=>{
     res.sendFile(__dirname + '/login.html')
 })
 app.get("/cadastro", (req, res)=>{
     res.sendFile(__dirname + '/cadastro.html')
 })
-
-app.get("/voltar", (req, res)=>{
-    res.sendFile(__dirname + '/login.html')
-})
-
 
 app.post("/login", (req, res)=>{
     const email = req.body.email
@@ -60,7 +55,7 @@ app.post("/cadastro", (req, res)=>{
     const confpassword = req.body.confsenha
 
     if (password === confpassword){
-        db.query('insert into usuario (nome, email, password) values (?,?,?);', [name, password, email], (error, results)=>{ 
+        db.query('insert into usuario (nome, email, password) values (?,?,?);', [name, email, password], (error, results)=>{ 
             if (error){
                 console.log('Erro ao realizar o cadastro', error);
             }else {
