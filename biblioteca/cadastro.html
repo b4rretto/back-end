@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #a3b1ffc5;
+    }
+    .cadastro-container {
+      margin-top: 100px;
+    }
+    .botao-cadastrar {
+      background-color: transparent;
+      border: none; 
+      color: #007bff;
+      cursor: pointer; 
+      outline: none; 
+
+    }
+    .alert {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+
+
+<div class="container">
+  <div class="row justify-content-center cadastro-container">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-center">Cadastro</h5>
+          <form action="/cadastro" method="POST" id="cadastroForm">
+            <div class="form-group">
+              <label for="username">Digite seu Nome</label>
+              <input type="username" class="form-control" id="nome" name="Nome" placeholder="Nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Digite seu email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="e-mail" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Digite sua Senha:</label>
+              <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+            </div>
+            <div class="form-group" id="confirm-group">
+                <label for="password">Confirmar Senha:</label>
+                <input type="password" class="form-control" id="confsenha" name="confsenha" placeholder="Repita a senha" required>
+              </div>
+            <button type="submit" class="btn btn-primary btn-block">Criar conta</button>
+            <form action="/voltar" method="GET">
+              <button type="submit" class="botao-cadastrar"> Clique aqui para voltar ao Login</button>
+            </form>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("cadastroForm").addEventListener("submit", function(event){
+    const password = document.getElementById("senha").value;
+    const confirm = document.getElementById("confsenha").value;
+    const tentativa =  document.getElementById("msg");
+
+if(!tentativa){
+  if(password !== confirm){
+    let span = document.createElement("span");
+    span.classList.add('alert');
+    span.textContent = "As senhas não coincidem";
+    span.setAttribute("id", "msg")
+    document.getElementById("confirm-group").appendChild(span);
+    event.preventDefault();
+  }
+}
+  })
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
